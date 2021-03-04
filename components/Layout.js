@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
                 </Link>
             </li>
 
-            {!isAuth() && (
+            {process.browser && !isAuth() && (
                 <>
                     <li className="nav-item">
                         <Link href="/login">
@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
                 </>
             )}
 
-            {isAuth() && isAuth().role === 'admin' && (
+            {process.browser && isAuth() && isAuth().role === 'admin' && (
                 <li className="nav-item ml-auto">
                     <Link href="/admin">
                         <a className="nav-link text-dark">
@@ -69,7 +69,7 @@ const Layout = ({ children }) => {
                 </li>
             )}
 
-            {isAuth() && isAuth().role === 'subscriber' && (
+            {process.browser && isAuth() && isAuth().role === 'subscriber' && (
                 <li className="nav-item ml-auto">
                     <Link href="/user">
                         <a className="nav-link text-dark">
