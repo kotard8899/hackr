@@ -7,6 +7,7 @@ const withUser = Page => {
   const WithAuthUser = props => <Page {...props} /> 
 
   WithAuthUser.getInitialProps = async context => {
+    console.log(context.req)
     const token = getCookie('token', context.req)
 
     let user = null
